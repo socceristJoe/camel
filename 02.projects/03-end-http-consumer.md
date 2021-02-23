@@ -307,7 +307,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.in28minutes.microservices.camelmicroserviceb.CurrencyExchange;
+import CurrencyExchange;
 
 @Component
 public class ActiveMqReceiverRouter extends RouteBuilder {
