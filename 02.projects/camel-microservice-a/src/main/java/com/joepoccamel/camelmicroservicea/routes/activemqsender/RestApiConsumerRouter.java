@@ -1,7 +1,6 @@
-package com.joepoccamel.camelmicroservicea.routes.c;
+package com.joepoccamel.camelmicroservicea.routes.activemqsender;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.stereotype.Component;
 
 //@Component
 public class RestApiConsumerRouter extends RouteBuilder{

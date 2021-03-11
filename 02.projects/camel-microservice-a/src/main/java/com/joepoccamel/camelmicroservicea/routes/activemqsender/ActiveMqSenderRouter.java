@@ -1,4 +1,4 @@
-package com.joepoccamel.camelmicroservicea.routes.c;
+package com.joepoccamel.camelmicroservicea.routes.activemqsender;
 
 import java.io.IOException;
 import java.security.Key;
@@ -12,27 +12,16 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.converter.crypto.CryptoDataFormat;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class ActiveMqSenderRouter extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
 
-        // timer
+        // timer, unit: millisecond
         from("timer:active-mq-timer?period=10000")
-                .transform().constant("My message for Active MQ").log("${body}")
-                .marshal(createEncryptor())
-                .to("activemq:my-activemq-queue");
-        // queue
-
-//		from("file:files/json")
-//		.log("${body}")
-//		.to("activemq:my-activemq-queue");
-
-//		from("file:files/xml")
-//		.log("${body}")
-//		.to("activemq:my-activemq-xml-queue");
-
+                .transform().constant("Joe test message for Active MQ").log("${body}")
+                .to("activemq:joepoc-camel-activemq");
     }
 
     private CryptoDataFormat createEncryptor() throws KeyStoreException, IOException, NoSuchAlgorithmException,

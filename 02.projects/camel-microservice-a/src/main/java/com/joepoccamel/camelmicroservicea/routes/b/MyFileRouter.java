@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class MyFileRouter extends RouteBuilder{
 	
 	@Autowired
@@ -22,8 +22,9 @@ public class MyFileRouter extends RouteBuilder{
 
 		//Pipeline
 		
-		from("file:files/input")
+		from("file:joe/input")
 		//.pipeline()
+/*
 		.routeId("Files-Input-Route")
 		.transform().body(String.class)
 		.choice() //Content Based Routing
@@ -35,14 +36,17 @@ public class MyFileRouter extends RouteBuilder{
 			.otherwise()
 				.log("Not an XML FILE")
 		.end()
-		.to("file:files/output");
+*/
+		.to("file:joe/output");
 		
+/*
 		from("direct:log-file-values")
 		.log("${messageHistory} ${file:absolute.path}")
 	   	.log("${file:name} ${file:name.ext} ${file:name.noext} ${file:onlyname}")
 	   	.log("${file:onlyname.noext} ${file:parent} ${file:path} ${file:absolute}")
 	   	.log("${file:size} ${file:modified}")
 	   	.log("${routeId} ${camelId} ${body}");
+*/
 
 	}
 

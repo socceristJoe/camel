@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+/files/input/1000.json
+/files/input/1000.xml
+/files/input/1001.json
+/files/input/1001.xml
+/files/input/1002.json
+/files/input/single-line.csv
