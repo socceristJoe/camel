@@ -1,4 +1,4 @@
-package com.joepoccamel.camelmicroservicea.routes.a;
+package com.joepoccamel.camelmicroservicea.routes.firstrouter;
 
 import java.time.LocalDateTime;
 
@@ -21,30 +21,16 @@ public class MyFirstTimerRouter extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        // timer
-        // transformation
-        // log
-        // Exchange[ExchangePattern: InOnly, BodyType: null, Body: [Body is null]]
-        from("timer:first-timer") //null
-                .log("${body}")//null
-                .transform().constant("My Constant Message")
-                .log("${body}")//My Constant Message
-                //.transform().constant("Time now is" + LocalDateTime.now())
-                //.bean("getCurrentTimeBean")
-
-                //Processing
-                //Transformation
-
+        from("timer:first-timer?period=10000")
+                .transform().constant("Joe's First Constant Message")
+                .log("${body}")
                 .bean(getCurrentTimeBean)
-                .log("${body}")//Time now is2021-01-18T18:32:19.660244
+                .log("${body}")
                 .bean(loggingComponent)
                 .log("${body}")
                 .process(new SimpleLoggingProcessor())
-                .to("log:first-timer"); //database
-
-
+                .to("log:first-timer");
     }
-
 }
 
 @Component
@@ -65,7 +51,6 @@ class SimpleLoggingProcessingComponent {
 
     }
 }
-
 
 class SimpleLoggingProcessor implements Processor {
 

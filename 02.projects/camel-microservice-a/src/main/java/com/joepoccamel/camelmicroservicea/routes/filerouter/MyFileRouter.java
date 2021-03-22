@@ -1,4 +1,4 @@
-package com.joepoccamel.camelmicroservicea.routes.b;
+package com.joepoccamel.camelmicroservicea.routes.filerouter;
 
 import java.util.Map;
 
