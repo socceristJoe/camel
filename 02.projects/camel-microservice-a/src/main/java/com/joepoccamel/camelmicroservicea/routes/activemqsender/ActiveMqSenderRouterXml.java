@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.security.*;
 import java.security.cert.CertificateException;
 
-@Component
+//@Component
 public class ActiveMqSenderRouterXml extends RouteBuilder {
 
     @Override
