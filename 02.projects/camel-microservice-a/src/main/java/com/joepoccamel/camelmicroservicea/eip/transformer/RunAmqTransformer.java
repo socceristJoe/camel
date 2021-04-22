@@ -1,4 +1,4 @@
-package com.joepoccamel.camelmicroservicea.routes.transformer;
+package com.joepoccamel.camelmicroservicea.eip.transformer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

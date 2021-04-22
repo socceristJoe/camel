@@ -1,13 +1,12 @@
-package com.joepoccamel.camelmicroservicea;
+package com.joepoccamel.camelmicroservicea.routes.patterns;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CamelMicroserviceAApplication {
-
+public class RunPatternTransformer {
     public static void main(String[] args) {
-        SpringApplication.run(CamelMicroserviceAApplication.class, args);
-    }
+        SpringApplication.run(RunPatternTransformer.class, args);
 
+    }
 }

@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class EipPatternsRouter extends RouteBuilder{
 	
 
@@ -28,9 +28,9 @@ public class EipPatternsRouter extends RouteBuilder{
 	@Override
 	public void configure() throws Exception {
 
-		getContext().setTracing(true);
-		
-		errorHandler(deadLetterChannel("activemq:dead-letter-queue"));
+//		getContext().setTracing(true);
+//
+//		errorHandler(deadLetterChannel("activemq:dead-letter-queue"));
 
 		//Pipeline
 		//Content Based Routing - choice()
@@ -63,7 +63,7 @@ public class EipPatternsRouter extends RouteBuilder{
 		//.completionTimeout(HIGHEST)
 		.to("log:aggregate-json");
 		
-		String routingSlip = "direct:endpoint1,direct:endpoint3";
+//		String routingSlip = "direct:endpoint1,direct:endpoint3";
 		//String routingSlip = "direct:endpoint1,direct:endpoint2,direct:endpoint3";
 		
 //		from("timer:routingSlip?period=10000")
@@ -74,9 +74,9 @@ public class EipPatternsRouter extends RouteBuilder{
 		
 		//Step 1, Step 2, Step 3
 
-		from("timer:dynamicRouting?period={{timePeriod}}")
-		.transform().constant("My Message is Hardcoded")
-		.dynamicRouter(method(dynamicRouterBean));
+//		from("timer:dynamicRouting?period={{timePeriod}}")
+//		.transform().constant("My Message is Hardcoded")
+//		.dynamicRouter(method(dynamicRouterBean));
 
 		
 		//Endpoint1
@@ -84,15 +84,15 @@ public class EipPatternsRouter extends RouteBuilder{
 		//Endpoint3
 
 		
-		from("direct:endpoint1")
-		.wireTap("log:wire-tap") //add
-		.to("{{endpoint-for-logging}}");
-
-		from("direct:endpoint2")
-		.to("log:directendpoint2");
-
-		from("direct:endpoint3")
-		.to("log:directendpoint3");
+//		from("direct:endpoint1")
+//		.wireTap("log:wire-tap") //add
+//		.to("{{endpoint-for-logging}}");
+//
+//		from("direct:endpoint2")
+//		.to("log:directendpoint2");
+//
+//		from("direct:endpoint3")
+//		.to("log:directendpoint3");
 
 
 	}

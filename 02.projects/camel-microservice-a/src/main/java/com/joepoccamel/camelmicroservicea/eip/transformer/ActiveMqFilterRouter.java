@@ -1,4 +1,4 @@
-package com.joepoccamel.camelmicroservicea.routes.transformer;
+package com.joepoccamel.camelmicroservicea.eip.transformer;
 
 import com.joepoccamel.camelmicroservicea.bean.HairProducts;
 import com.joepoccamel.camelmicroservicea.bean.HairProductsCore;

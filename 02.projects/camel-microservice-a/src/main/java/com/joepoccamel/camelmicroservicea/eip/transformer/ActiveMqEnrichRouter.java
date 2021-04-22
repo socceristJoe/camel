@@ -1,4 +1,4 @@
-package com.joepoccamel.camelmicroservicea.routes.transformer;
+package com.joepoccamel.camelmicroservicea.eip.transformer;
 
 import com.joepoccamel.camelmicroservicea.bean.HairProducts;
 import com.joepoccamel.camelmicroservicea.bean.HairProductsExtension;
@@ -22,7 +22,7 @@ public class ActiveMqEnrichRouter extends RouteBuilder {
     public void configure() throws Exception {
         from("file:files/json")
                 .log("${body}")
-                .to("activemq:joepoc-camel-activemq-json")
+                .to("activemq:joepoc-camel-activemq-json?selector=bu='hairs'")
                 .unmarshal()
                 .json(JsonLibrary.Jackson, HairProducts.class)
                 .bean(hairProductsProcessor)
