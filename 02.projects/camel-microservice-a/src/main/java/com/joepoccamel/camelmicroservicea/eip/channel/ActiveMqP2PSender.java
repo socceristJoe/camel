@@ -15,7 +15,7 @@ public class ActiveMqP2PSender extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("timer:point2point-timer?period=2000&repeatCount=10")
-                .transform().constant("P2P Message sent to ActiveMQ")
+                .transform().constant("Hi this is Joe")
                 .log("${body}")
                 .to("activemq:joepoc-camel-activemq-p2p");
     }

@@ -16,7 +16,7 @@ public class AggregatorSender extends RouteBuilder {
     public void configure() throws Exception {
         from("file:files/aggregator")
                 .unmarshal().json(JsonLibrary.Jackson, HairProducts.class)
-                .aggregate(simple("${body.bu}"), new AggregatorComponent())
+                .aggregate(simple("${body.brand}"), new AggregatorComponent())
                 .completionSize(2)
                 .marshal().json()
                 .log("${body}")

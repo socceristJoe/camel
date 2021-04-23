@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class ActiveMqFilterRouter extends RouteBuilder {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ActiveMqFilterRouter extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("file:files/json")
+        from("file:files/send")
                 .log("${body}")
                 .to("activemq:joepoc-camel-activemq-json")
                 .unmarshal()
